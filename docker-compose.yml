@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: dockerfile
+    image: naive-bayes:v1
+    container_name: naive-bayes
+    command: [ "sleep", "30d" ]
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+    ports:
+      - 8086:80
