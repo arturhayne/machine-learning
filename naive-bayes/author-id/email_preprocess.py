@@ -5,13 +5,16 @@ import numpy
 import os
 
 
-
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_selection import SelectPercentile, f_classif
 
+word_file_name = "word_data.pkl"
+author_file_name = "email_authors.pkl"
+folder_name = "data"
+current_directory = os.getcwd()
 
-def preprocess(words_file = "author-id/data/word_data.pkl", authors_file="author-id/data/email_authors.pkl"):
+def preprocess(words_file = os.path.join(current_directory, folder_name, word_file_name), authors_file=os.path.join(current_directory, folder_name, author_file_name)):
     """ 
         this function takes a pre-made list of email texts (by default word_data.pkl)
         and the corresponding authors (by default email_authors.pkl) and performs

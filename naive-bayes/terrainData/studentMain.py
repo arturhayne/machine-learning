@@ -6,8 +6,10 @@ from ClassifyNB import classify
 
 import numpy as np
 import pylab as pl
+import os
 
-
+current_directory = os.getcwd()
+file_name = "test.png"
 features_train, labels_train, features_test, labels_test = makeTerrainData()
 
 ### the training data (features_train, labels_train) have both "fast" and "slow" points mixed
@@ -24,4 +26,4 @@ clf = classify(features_train, labels_train)
 
 ### draw the decision boundary with the text points overlaid
 prettyPicture(clf, features_test, labels_test)
-output_image("terrainData/test.png", "png", open("test.png", "rb").read())
+output_image(os.path.join(current_directory, file_name), "png", open("test.png", "rb").read())

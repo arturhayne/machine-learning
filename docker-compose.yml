@@ -5,8 +5,8 @@ services:
     build:
       context: ./
       dockerfile: dockerfile
-    image: naive-bayes:v1
-    container_name: naive-bayes
+    image: ml:v1
+    container_name: ml
     command: [ "sleep", "30d" ]
     extra_hosts:
       - "host.docker.internal:host-gateway"
