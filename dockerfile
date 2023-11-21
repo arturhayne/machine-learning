@@ -8,7 +8,9 @@ RUN apt-get update -y && \
 RUN pip3 install --upgrade pip \
     pip install numpy \
     pip install scikit-learn \
-    pip install matplotlib
+    pip install matplotlib \ 
+    pip install nltk \ 
+    pip install requests
 
 WORKDIR /app
 
