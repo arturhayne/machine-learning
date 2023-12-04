@@ -11,10 +11,9 @@ from sklearn.feature_selection import SelectPercentile, f_classif
 
 word_file_name = "word_data.pkl"
 author_file_name = "email_authors.pkl"
-folder_name = "data"
-current_directory = os.getcwd()
+directory = "/app/naive-bayes/author-id/data"
 
-def preprocess(words_file = os.path.join(current_directory, folder_name, word_file_name), authors_file=os.path.join(current_directory, folder_name, author_file_name)):
+def preprocess(words_file = os.path.join(directory, word_file_name), authors_file=os.path.join(directory, author_file_name)):
     """ 
         this function takes a pre-made list of email texts (by default word_data.pkl)
         and the corresponding authors (by default email_authors.pkl) and performs
