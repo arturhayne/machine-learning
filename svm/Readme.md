@@ -5,6 +5,12 @@ Don't work well with lot noise.
 ## Parameters
 [Parameters](https://scikit-learn.org/stable/auto_examples/svm/plot_rbf_parameters.html) like gamma, C and kernel, prevents the algorithm produces overfitting.
 
+## How to execute
+```
+# python svm/author-id/svm_author_id.py
+# python svm/terrainData/main.py 
+```
+
 
 ## Comparing with naive bayes
 
