@@ -26,5 +26,15 @@ accuracy = classifier.score(features_test, labels_test)
 ```
 To classify and predict the inputs.
 
+## How to run
+```
+# python naive-bayes/firstLesson/sklean-naive-bayes.py 
+# python naive-bayes/author-id/nb_author_id.py 
+# python naive-bayes/terrainData/studentMain.py 
+```
+studentMain.py output is an terrainData/test.png
+
+
+
 ## References
 [Naive GaussianNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html)
