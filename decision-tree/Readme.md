@@ -44,8 +44,10 @@ The `min_samples_split` parameter in scikit-learn's decision tree classifier is 
 
 We can adjust the `min_samples_split` parameter to control the granularity of the splits in the decision tree. For example:
 
-```python
+```
+python
 clf = tree.DecisionTreeClassifier(min_samples_split=2)
+```
 
 ## How to run
 ```
