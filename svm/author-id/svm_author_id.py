@@ -10,6 +10,7 @@
     
 import sys
 from time import time
+sys.path.append("/app/tools/")
 from email_preprocess import preprocess
 from sklearn.svm import SVC
 
