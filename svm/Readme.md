@@ -11,7 +11,6 @@ Don't work well with lot noise.
 # python svm/terrainData/main.py 
 ```
 
-
 ## Comparing with naive bayes
 
 Naive Bayes is great for text--it’s faster and generally gives better performance than an SVM for this particular problem.

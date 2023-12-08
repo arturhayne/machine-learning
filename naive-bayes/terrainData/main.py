@@ -1,15 +1,12 @@
 #!/usr/bin/python
-
+import sys
+sys.path.append("/app/tools/")
 from prep_terrain_data import makeTerrainData
-from class_vis import prettyPicture, output_image
-from ClassifyNB import classify
+from class_vis import prettyPicture
+from sklearn.naive_bayes import GaussianNB
 
-import numpy as np
-import pylab as pl
-import os
-
-current_directory = os.getcwd()
-file_name = "test.png"
+directory = '/app/naive-bayes/terrainData'
+file_name = 'terrainDataResult.png'
 features_train, labels_train, features_test, labels_test = makeTerrainData()
 
 ### the training data (features_train, labels_train) have both "fast" and "slow" points mixed
@@ -20,10 +17,10 @@ bumpy_fast = [features_train[ii][1] for ii in range(0, len(features_train)) if l
 grade_slow = [features_train[ii][0] for ii in range(0, len(features_train)) if labels_train[ii]==1]
 bumpy_slow = [features_train[ii][1] for ii in range(0, len(features_train)) if labels_train[ii]==1]
 
-clf = classify(features_train, labels_train)
-
-
+classifier = GaussianNB()
+clf = classifier.fit(features_train, labels_train)
+accuracy = clf.score(features_test, labels_test)
+print('Accuracy:', accuracy)
 
 ### draw the decision boundary with the text points overlaid
-prettyPicture(clf, features_test, labels_test)
-output_image(os.path.join(current_directory, file_name), "png", open("test.png", "rb").read())
+prettyPicture(clf, features_test, labels_test, directory + '/'+ file_name)
