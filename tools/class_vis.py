@@ -15,7 +15,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 plt.ioff()
 
-def prettyPicture(clf, X_test, y_test, file_name):
+def prettyPicture(clf, X_test, y_test, file_name, title = '', accuracy = ''):
     x_min = 0.0; x_max = 1.0
     y_min = 0.0; y_max = 1.0
 
@@ -43,6 +43,9 @@ def prettyPicture(clf, X_test, y_test, file_name):
     plt.legend()
     plt.xlabel("bumpiness")
     plt.ylabel("grade")
+    plt.title(title)
+    if accuracy: 
+        plt.figtext(0.2, 0.01, "Accuracy:"+str(accuracy), ha="left", fontsize=10, bbox={"facecolor": "green", "alpha": 0.75, "pad": 3})
 
     plt.savefig(file_name)
     
