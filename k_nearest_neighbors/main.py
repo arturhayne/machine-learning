@@ -6,10 +6,10 @@ from class_vis import prettyPicture
 from sklearn.neighbors import KNeighborsClassifier
 
 directory = '/app/k_nearest_neighbors'
-file_name = 'terrainDataResult.png'
+file_name = 'terrainDataResult5k.png'
 features_train, labels_train, features_test, labels_test = makeTerrainData()
 
-classifier = KNeighborsClassifier(n_neighbors=3)
+classifier = KNeighborsClassifier(n_neighbors=5)
 clf = classifier.fit(features_train, labels_train)
 accuracy = clf.score(features_test, labels_test)
 print('Accuracy:', accuracy)
