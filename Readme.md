@@ -7,3 +7,5 @@ This is part of the [Udacity Intro Machine Learning program](https://learn.udaci
  - [Adaboost](https://github.com/arturhayne/machine-learning/tree/main/adaboost#readme)
  - [K Nearest Neighbors](https://github.com/arturhayne/machine-learning/tree/main/k_nearest_neighbors#readme)
  - [Random Forest](https://github.com/arturhayne/machine-learning/tree/main/random_forest#readme)
+
+ [Udacity starter project repository](https://github.com/udacity/ud120-projects)
