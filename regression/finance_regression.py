@@ -25,6 +25,7 @@ from class_vis import prettyPicture, output_image
 ### list the features you want to look at--first item in the 
 ### list will be the "target" feature
 features_list = ["bonus", "salary"]
+# features_list = ["bonus", "long_term_incentive"]
 data = featureFormat( dictionary, features_list, remove_any_zeroes=True, sort_keys = '/app/tools/python2_lesson06_keys.pkl')
 target, features = targetFeatureSplit( data )
 
@@ -42,10 +43,12 @@ test_color = "r"
 ### "r" to differentiate training points from test points.
 
 
-reg = linear_model.Ridge(alpha=.5)
+reg = linear_model.Ridge()
 reg.fit(feature_train, target_train)
-
-
+print('Slope:', reg.coef_ )
+print('Intecept:', reg.intercept_ )
+score = reg.score(feature_test, target_test)
+print('Score:', score )
 
 
 
@@ -64,10 +67,15 @@ plt.scatter(feature_test[0], target_test[0], color=train_color, label="train")
 
 
 ### draw the regression line, once it's coded
-# try:
-plt.plot( feature_test, reg.predict(feature_test) )
-# except NameError:
-#     pass
+try:
+    plt.plot( feature_test, reg.predict(feature_test), color = 'black' )
+except NameError:
+    pass
+
+reg.fit(feature_test, target_test)
+print('New Slope:', reg.coef_ )
+plt.plot(feature_train, reg.predict(feature_train), color="b")
+
 plt.xlabel(features_list[1])
 plt.ylabel(features_list[0])
 plt.legend()
