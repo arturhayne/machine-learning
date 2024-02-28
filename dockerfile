@@ -10,7 +10,8 @@ RUN pip3 install --upgrade pip \
     pip install scikit-learn \
     pip install matplotlib \ 
     pip install nltk \ 
-    pip install requests
+    pip install requests \
+    pip install pandas
 
 WORKDIR /app
 
