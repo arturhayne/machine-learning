@@ -73,8 +73,18 @@ def sara_and_chris(sw):
     pickle.dump( word_data, open("my_word_data.pkl", "wb") )
     pickle.dump( from_data, open("my_email_authors.pkl", "wb") )
     
-    return None
+    return word_data
 
 
 sw = ["sara", "shackleton", "chris", "germani", "sshacklensf"]
-sara_and_chris(sw)
+result = sara_and_chris(sw)
+print(result[152])
+
+vectorizer = TfidfVectorizer(stop_words="english", lowercase=True)
+vectorizer.fit_transform(result)
+
+feature_names = vectorizer.get_feature_names_out()
+
+print(len(feature_names))
+
+print(feature_names[34596])

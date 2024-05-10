@@ -1,37 +1,58 @@
-import string
+#!/usr/bin/python3
+
 from nltk.stem.snowball import SnowballStemmer
+import string
 
 def parseOutText(f):
-    '''
-    Input: a file containing text
-    
-    Output: the stemmed words in the input text, all separated by a single space
-    '''
+    """ given an opened email file f, parse out all text below the
+        metadata block at the top
+        (in Part 2, you will also add stemming capabilities)
+        and return a string that contains all the words
+        in the email (space-separated) 
+        
+        example use case:
+        f = open("email_file_name.txt", "r")
+        text = parseOutText(f)
+        
+        """
+
+
     f.seek(0)  ### go back to beginning of file (annoying)
     all_text = f.read()
 
     ### split off metadata
     content = all_text.split("X-FileName:")
-    
-    # the stemmer
-    stemmer = SnowballStemmer('english')
-    
-    # the string of words
     words = ""
-    
     if len(content) > 1:
         ### remove punctuation
-        text_string = content[1].translate(str.maketrans("", "", string.punctuation))
+        text_string = content[1].translate(str.maketrans('','',string.punctuation))
+
+        ### project part 2: comment out the line below
+        ## words = text_string
+        my_list = []
+        stemmer = SnowballStemmer("english")
+        for word in text_string.split():
+            stemedWord = stemmer.stem(word) + ' '
+            my_list.append(stemedWord)
+
+
 
         ### split the text string into individual words, stem each word,
         ### and append the stemmed word to words (make sure there's a single
         ### space between each stemmed word)
-        for word in text_string.split():
-            # stem the word and add it to words
-            words += stemmer.stem(word) + ' '       
-        
-    return words[:-1]
+
+
+
+    return ''.join(my_list)
+
     
 
-ff = open("test_email.txt", "r")
-text = parseOutText(ff)
+def main():
+    ff = open("test_email.txt", "r")
+    text = parseOutText(ff)
+    print(text)
+
+
+
+if __name__ == '__main__':
+    main()
